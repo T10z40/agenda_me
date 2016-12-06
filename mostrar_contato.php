@@ -29,45 +29,57 @@ if (isset($_POST['mostrar_contato'])) {
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
+	<script type='text/javascript' src='assets/js/bootstrap.min.js'></script>
 	<title>Contato</title>
+	<div class="col-md-12 text-center"><legend style="font-size: 30px;">Contato</legend></div>
 </head>
 <body>
 
-<h3>Contato</h3>
-
-<table>
+<table class="table table-responsive table-bordered table-hover">
 	<thead>
-		<th>Nome</th>
-		<th>Sobrenome</th>
-		<th>Cep</th>
-		<th>Criado</th>
-		<th>Modificado</th>
-		<th>Empresa</th>
-		<th>Ações</th>
+		<th class="text-center">Nome</th>
+		<th class="text-center">Sobrenome</th>
+		<th class="text-center">Cep</th>
+		<th class="text-center">Rua</th>
+		<th class="text-center">Número</th>
+		<th class="text-center">Bairro</th>
+		<th class="text-center">Cidade</th>
+		<th class="text-center">Estado</th>
+		<th class="text-center">Criado</th>
+		<th class="text-center">Modificado</th>
+		<th class="text-center">Empresa</th>
+		<th class="text-center">Ações</th>
 	</thead>
 	<tbody>
 			<?php if ($contato != NULL){ ?>
 			<tr>
-			<td><?php echo $contato->nome; ?> </td>
-			<td><?php echo $contato->sobrenome; ?> </td>
-			<td><?php echo $contato->cep; ?> </td>
-			<td><?php echo $contato->criado; ?> </td>
-			<td><?php echo $contato->modificado; ?> </td>
-			<td><?php echo $contato_empresa->nome; ?> </td>
-			<td><form method="POST" name="editar_contato" action="editar_contato.php"><button type='submit' name='bt_editar_contato'><input type="hidden" name="id_contato" value='<?php echo $contato->id ?>'>Editar</button></form></td>
-			<td><form method="POST" name="excluir_contato" action="excluir_contato.php"><button type='submit' name='bt_excluir_contato'><input type="hidden" name="id_contato" value='<?php echo $contato->id ?>'>Excluir</button></form></td>
+			<td class="text-center"><?php echo $contato->nome; ?> </td>
+			<td class="text-center"><?php echo $contato->sobrenome; ?> </td>
+			<td class="text-center"><?php echo $contato->cep; ?> </td>
+			<td class="text-center"><?php echo $contato->rua; ?> </td>
+			<td class="text-center"><?php echo $contato->numero; ?> </td>
+			<td class="text-center"><?php echo $contato->bairro; ?> </td>
+			<td class="text-center"><?php echo $contato->cidade; ?> </td>
+			<td class="text-center"><?php echo $contato->estado; ?> </td>
+			<td class="text-center"><?php echo $contato->criado; ?> </td>
+			<td class="text-center"><?php echo $contato->modificado; ?> </td>
+			<td class="text-center"><?php echo $contato_empresa->nome; ?> </td>
+			<td class="text-center"><form method="POST" name="editar_contato" action="editar_contato.php"><button type='submit' class='btn btn-xs btn-success' style="margin-bottom: 5px;" name='bt_editar_contato'><input type="hidden" name="id_contato" value='<?php echo $contato->id ?>'>Editar</button></form>
+			<form method="POST" name="excluir_contato" action="excluir_contato.php"><button type='submit' class="btn btn-xs btn-danger" name='bt_excluir_contato'><input type="hidden" name="id_contato" value='<?php echo $contato->id ?>'>Excluir</button></form></td>
 			<?php } ?>
 			</tr>
 	</tbody>
 </table>
 
-<h3>Telefones</h3>
+<div class="col-md-12 text-center"><legend style="font-size: 30px;">Telefones</legend></div>
 
-<table>
+<table class="table table-responsive table-bordered table-hover"
 	<thead>
-		<th>Número</th>
-		<th>Tipo</th>
-		<th>Ações</th>
+		<th class="text-center">Número</th>
+		<th class="text-center">Tipo</th>
+		<th class="text-center">Ações</th>
 	</thead>
 	<tbody>
 		<?php
@@ -76,28 +88,30 @@ if (isset($_POST['mostrar_contato'])) {
 
 				<?php if($telefone->id){ ?>
 				<tr>
-				<td><?php echo $telefone->numero; ?> </td>
-				<td><?php echo $telefone->tipo; ?> </td>
-				<td><form method="POST" name="excluir_telefone" action="excluir_telefone.php"><button type='submit' name='bt_excluir_telefone'><input type="hidden" name="id_telefone" value='<?php echo $telefone->id ?>'>Excluir</button></form></td>
+				<td class="text-center"><?php echo $telefone->numero; ?> </td>
+				<td class="text-center"><?php echo $telefone->tipo; ?> </td>
+				<td class="text-center"><form method="POST" name="excluir_telefone" action="excluir_telefone.php"><button type='submit' class="btn btn-xs btn-danger text-center" name='bt_excluir_telefone'><input type="hidden" name="id_telefone" value='<?php echo $telefone->id ?>'>Excluir</button></form></td>
 				<?php } ?>
 			<?php } while ($telefone = mysqli_fetch_object($verifica_telefone));
 		?>
 		</tr>
 	</tbody>
 </table><br>
-	<form method="POST" name="adicionar_telefone" action="adicionar_telefone.php"><label>Adicionar outro Telefone:<br>
-				<input type="text" name="novo_telefone" placeholder="TELEFONE"><select name="tipo_telefone_contato">
+	<div class="col-md-4 col-md-offset-4"><form class="form-group" method="POST" name="adicionar_telefone" action="adicionar_telefone.php"><legend>Adicionar outro Telefone:</legend></div>
+				<div class="col-md-4 col-md-offset-4"><input type="text" class="form-control" style="margin-bottom: 5px;" name="novo_telefone" placeholder="TELEFONE"></div>
+				<div class="col-md-4 col-md-offset-4"><select class="form-control" style="margin-bottom: 5px;" name="tipo_telefone_contato">
 				<option value="Residencial">Residencial</option>
 				<option value="Celular">Celular</option>
 				<option value="Trabalho">Trabalho</option>
-			</select>
-		</label><button type='submit' name='bt_adicionar_telefone'><input type="hidden" name="id_contato" value='<?php echo $contato->id ?>'>Adicionar</button></form></tr>
+			</select></div>
+		<div class="col-md-4 col-md-offset-4"><button style="margin-bottom: 30px;"class="form-control btn btn-primary" type='submit' name='bt_adicionar_telefone'><input type="hidden" name="id_contato" value='<?php echo $contato->id ?>'>Adicionar</button></div></form></div><br>
 
-<h3>E-Mails</h3>
-<table>
+<div class="col-md-12 text-center"><legend style="font-size: 30px;">E-Mails</legend></div>
+
+<table class="table table-responsive table-bordered table-hover"
 	<thead>
-		<th>E-Mail</th>
-		<th>Ações</th>
+		<th class="text-center">E-Mail</th>
+		<th class="text-center">Ações</th>
 	</thead>
 	<tbody>
 		<?php
@@ -105,8 +119,8 @@ if (isset($_POST['mostrar_contato'])) {
 			do { ?>
 				<?php if($email->id){ ?>
 				<tr>
-				<td><?php echo $email->email; ?> </td>
-				<td><form method="POST" name="excluir_email" action="excluir_email.php"><button type='submit' name='bt_excluir_email'><input type="hidden" name="id_email" value='<?php echo $email->id ?>'>Excluir</button></form></td>
+				<td class="text-center"><?php echo $email->email; ?> </td>
+				<td class="text-center"><form method="POST" name="excluir_email" action="excluir_email.php"><button type='submit' class="btn btn-xs btn-danger" name='bt_excluir_email'><input type="hidden" name="id_email" value='<?php echo $email->id ?>'>Excluir</button></form></td>
 				<?php } ?>
 			<?php } while ($email = mysqli_fetch_object($verifica_email));
 		?>
@@ -115,9 +129,9 @@ if (isset($_POST['mostrar_contato'])) {
 </table><br>
 	
 
-	<form method="POST" name="adicionar_email" action="adicionar_email.php"><label>Adicionar outro E-Mail:<br>
-			<input type="text" name="novo_email" placeholder="E-MAIL">
-	</label><button type='submit' name='bt_adicionar_email'><input type="hidden" name="id_contato" value='<?php echo $contato->id ?>'>Adicionar</button></form>
+	<div class="col-md-4 col-md-offset-4"><form class="form-group" method="POST" name="adicionar_email" action="adicionar_email.php"><legend>Adicionar outro E-Mail:</legend></div>
+			<div class="col-md-4 col-md-offset-4"><input type="text" class="form-control" style="margin-bottom: 5px;" name="novo_email" placeholder="E-MAIL"></div>
+	<div class="col-md-4 col-md-offset-4"><button class="form-control btn btn-primary" type='submit' style="margin-bottom: 30px;" name='bt_adicionar_email'><input type="hidden" name="id_contato" value='<?php echo $contato->id ?>'>Adicionar</button></div></form></div>
 	
 
 </body>

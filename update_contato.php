@@ -18,7 +18,7 @@ if (isset($_POST['envia_contato'])) {
  	$query_contato="UPDATE contatos SET nome='$nome', sobrenome='$sobrenome', cep='$cep', rua='$rua', numero='$numero', bairro='$bairro', cidade='$cidade', estado='$estado', id_empresa='$empresa', modificado='$modificado' WHERE id='$id'";
  	$verifica_contato=mysqli_query($connect, $query_contato);
 
- 	echo "<script language='javascript' type='text/javascript'>alert('As novas informações foram salvas!');window.location.href='index.php';</script>";
+ 	echo "<script language='javascript' type='text/javascript'>alert('As novas informações foram salvas!');window.location.href='listar_contatos.php';</script>";
  
 
  }

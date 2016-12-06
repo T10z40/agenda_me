@@ -27,36 +27,26 @@ if (isset($_POST['bt_editar_contato'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Agenda</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
+	<script type='text/javascript' src='assets/js/bootstrap.min.js'></script>
+	<title>Editar Contato</title>
+	<div class="col-md-12 text-center"><legend style="font-size: 30px;">Editar Contato</legend></div>
 </head>
 <body>
-<div>
-	<form method="POST" action="update_contato.php" name="envia_contato">
-		<input type="hidden" name="id" value="<?php echo $id; ?>">
-		<label>Nome:<br>
-			<input type="text" name="nome_contato" value="<?php echo $contatos->nome; ?>">
-		</label><br>
-		<label>Sobrenome:<br>
-			<input type="text" name="sobrenome_contato" value="<?php echo $contatos->sobrenome; ?>">
-		</label><br>
-		<label>CEP:<br>
-			<input type="text" name="cep_contato" value="<?php echo $contatos->cep; ?>">
-		</label><br>
-		<label>Rua:<br>
-			<input type="text" name="rua_contato" value="<?php echo $contatos->rua; ?>">
-		</label><br>
-		<label>Número:<br>
-			<input type="text" name="numero_contato" value="<?php echo $contatos->numero; ?>">
-		</label><br>
-		<label>Bairro:<br>
-			<input type="text" name="bairro_contato" value="<?php echo $contatos->bairro; ?>">
-		</label><br>
-		<label>Cidade:<br>
-			<input type="text" name="cidade_contato" value="<?php echo $contatos->cidade; ?>">
-		</label><br>
+	<div class="col-md-9 col-md-offset-2"><form class="form-group" method="POST" action="update_contato.php" name="envia_contato">
+		<div class="col-md-5 col-md-offset-3"><input class="form-control"type="hidden" name="id" value="<?php echo $id; ?>"></div>
+		<div class="col-md-5 col-md-offset-3"><input class="form-control" type="text" name="nome_contato" value="<?php echo $contatos->nome; ?>"></div>
+		<div class="col-md-5 col-md-offset-3"><input class="form-control" type="text" name="sobrenome_contato" value="<?php echo $contatos->sobrenome; ?>"></div>
+		<div class="col-md-5 col-md-offset-3"><input class="form-control" type="text" name="cep_contato" value="<?php echo $contatos->cep; ?>"></div>
+		<div class="col-md-5 col-md-offset-3"><input class="form-control" type="text" name="rua_contato" value="<?php echo $contatos->rua; ?>"></div>
+		<div class="col-md-5 col-md-offset-3"><input class="form-control" type="text" name="numero_contato" value="<?php echo $contatos->numero; ?>"></div>
+		<div class="col-md-5 col-md-offset-3"><input class="form-control" type="text" name="bairro_contato" value="<?php echo $contatos->bairro; ?>"></div>
+		<div class="col-md-5 col-md-offset-3"><input class="form-control" style="margin-bottom: 20px;" type="text" name="cidade_contato" value="<?php echo $contatos->cidade; ?>"></div>
 		
-		<label>Estado:<br>
-		<select name="estado_contato">Selecione o Estado:
+		
+		<div class="col-md-5 col-md-offset-3"><legend>Selecione o Estado:</legend></div>
+		<div class="col-md-5 col-md-offset-3"><select class="form-control" style="margin-bottom: 20px;" name="estado_contato">
 			<option value="<?php echo $contatos->estado; ?>"><?php echo $contatos->estado; ?></option>
 			<option value="AC">AC</option>
 			<option value="AL">AL</option>
@@ -85,11 +75,10 @@ if (isset($_POST['bt_editar_contato'])) {
 			<option value="SP">SP</option>
 			<option value="SE">SE</option>
 			<option value="TO">TO</option>
-		</select>
-		</label><br>
+		</select></div><br>
 
-		<label>Empresa:<br>
-		<select name="empresa_contato">Selecione a Empresa:
+		<div class="col-md-5 col-md-offset-3"><legend>Selecione a Empresa:</legend></div>
+		<div class="col-md-5 col-md-offset-3"><select class="form-control" style="margin-bottom: 20px;" name="empresa_contato">Selecione a Empresa:
 			<?php
 
 				echo "<option value='".$contato_empresa->id."'>".$contato_empresa->nome."</option>";
@@ -99,12 +88,12 @@ if (isset($_POST['bt_editar_contato'])) {
 				} while ($empresas = mysqli_fetch_object($verifica_empresas)); 
 			?>
 
-		</select>
+		</select></div>
 		</label><br>
 
 
-	<button type="submit" value="submit" name="envia_contato">Salvar</button>
-	</form>
+	<div class="col-md-5 col-md-offset-3"><button class="form-control btn btn-primary" type="submit" value="submit" name="envia_contato">Salvar</button></div>
+	</form></div>
 </div>
 </body>
 </html>

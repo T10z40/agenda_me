@@ -16,8 +16,8 @@ $empresas = mysqli_fetch_object($verifica_lista);
 	<title>Lista de Empresas</title>
 </head>
 <body>
-<div class="col-md-12 text-center"><legend style="font-size: 30px;">Lista de Empresas</legend>
-<table class="table table-responsive table-hover">
+<div class="col-md-12 text-center"><legend style="font-size: 30px;">Lista de Empresas</legend></div>
+<div class="col-md-12 text-center"><table class="table table-responsive table-bordered table-hover"></div>
 	<thead>
 		<th class="text-center">Nome</th>
 		<th class="text-center">Telefone</th>
@@ -40,7 +40,7 @@ $empresas = mysqli_fetch_object($verifica_lista);
 	</tbody>
 </table>
 <br>
-<legend style="font-size: 30px;">Nova Empresa</legend><br>
+<div class="col-md-12 text-center"><legend style="font-size: 30px;">Nova Empresa</legend></div>
 <form class="form-group" method="POST" action="adiciona_empresa.php" name="nova_empresa">
 	<div class="col-md-9 col-md-offset-2">
 	<div class="col-md-4"><input class="form-control" type="text" name="nome_empresa" placeholder="NOME"></div>

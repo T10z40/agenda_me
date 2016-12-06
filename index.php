@@ -7,9 +7,9 @@
 	<title>Agenda</title>
 </head>
 <body>
-<div class="col-md-12 text-center"><h2>Bem-vindo Usuário</h2></div>
-<div class="col-md-1 col-md-offset-5 text-center"><a class="btn btn-xs btn-primary" href="listar_contatos.php">Ver Contatos</a></div>
-<div class="col-md-1 text-center"><a class="btn btn-xs btn-primary" href="listar_empresas.php">Ver Empresas</a></div>
+<div class="col-md-12 text-center"><legend style="font-size: 30px;">Bem-Vindo, Usuário</legend>
+<div class="col-md-4 col-md-offset-4 text-center"><a class="btn btn-block btn-primary" style="margin-bottom: 15px;" href="listar_contatos.php">Ver Contatos</a></div>
+<div class="col-md-4 col-md-offset-4 text-center"><a class="btn btn-block btn-primary" href="listar_empresas.php">Ver Empresas</a></div>
 
 </body>
 </html>
